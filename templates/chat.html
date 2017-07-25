@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='jquery.min.js')}}"></script>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <style>
+  body{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.media-list {
+
+    overflow: auto;
+    clear: both;
+    display: table;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
+    line-break: strict; }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <a href="/" class="navbar-brand">Home</a>
+    <a href="/chat" class="navbar-brand">Chat</a>
+</nav>
+<hr style="padding-top: 70px">
+<div id="chatPanel" class="panel panel-primary">
+<div class="panel-heading">
+<span class="glyphicon glyphicon-comment"> ChatBot</span>
+</div>
+<div class="panel-body" style="overflow-y: scroll;
+    height: 250px;">
+    <ul class="media-list">
+        
+    </ul>
+</div>
+<div class="panel-footer">
+    <form method="post" class="form-group" id="form-chat">
+        <div class="input-group">
+            <input type="text" id="chatmessage" name="chatmessage" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn-warning btn-sm col-10" id="btn-chat">Submit</button>
+                <button type="button" class="btn-primary btn-sm" id="bls">balas</button>
+            </span>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+<script>
+$(function(){
+    $( "#btn-chat" ).click(function( event ) {
+      event.preventDefault();
+      $("#form-chat").submit();
+  });
+    $("#form-chat").submit(function(event){
+        event.preventDefault();
+        var pesan = $("#chatmessage").val();
+        $( ".media-list" ).append( '<li class="left clearfix" style="margin-left: 60px;"><span class="chat-img pull-left">\
+            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />\
+            </span>\
+            <div class="chat-body clearfix">\
+            <div class="header">\
+            <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">\
+            <span class="glyphicon glyphicon-time"></span>14 mins ago</small>\
+            </div>\
+            <p>'+ pesan +'</p>\
+            </div>\
+            </li>' );
+        $.ajax({
+            type: "POST",
+            url: "/ask",
+            data: $(this).serialize(),
+            success: function(response) {
+                $('#chatmessage').val('');
+                var answer = response.answer;
+                const chatPanel = document.getElementById("chatPanel");
+                $(".media-list").append('<li class="right clearfix" style="margin-right: 0px;"><span class="chat-img pull-right">\
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />\
+                        </span>\
+                            <div class="chat-body clearfix">\
+                                <div class="header">\
+                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>\
+                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>\
+                                </div>\
+                                <p>'+answer+'</p>\
+                            </div>\
+                        </li>');
+                $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+    });
+    
+});
+
+</script>
+</html>

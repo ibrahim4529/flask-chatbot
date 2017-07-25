@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+ 
+<category>
+	<pattern>*</pattern>
+	<template>KATA INI BELUM SAYA PELAJARI</template>
+</category>
+<category>
+<pattern>HELLO *</pattern>
+	<template>HELO NAMA SAYA JESICA<start index="1"/></template>
+</category>
+<category>
+<pattern>SIAPA NAMA KAMU</pattern>
+<template>nama saya juice</template>
+</category>
+<category>
+	<pattern>SIAPA KAMU</pattern>
+	<template>
+		<random>
+			<li>ih kepodeh kaka</li>
+			<li>yang jelas saya cantik</li>
+		</random>
+	</template>
+</category>
+<category>
+	<pattern>HOW ARE YOU DOING</pattern>
+	<template>
+		<random>
+			<li>I’m fine.</li>
+			<li>OK, I am doing alright.</li>
+			<li>Quite well, thanks.</li>
+			<li>Good, good, and you?</li>
+		</random>
+	</template>
+</category>
+<category>
+	<pattern>ASU</pattern>
+	<template>
+		<random>
+			<li>apa asu asu</li>
+			<li>pamali go</li>
+		</random>
+	</template>
+</category>
+<category>
+	<pattern>KAMU KENAL IBAM</pattern>
+	<template>
+		<random>
+			<li>kenalah yang ganteng itu kan</li>
+			<li>yang orangya baik dan gak sombong itu yah</li>
+		</random>
+	</template>
+</category>
+<category>
+	<pattern>KAMU KENAL ZAKI</pattern>
+	<template>
+		<random>
+			<li>kenalah yang Waktu lebaran ngompol kan</li>
+			<li>yang orangya jabrik itu kan</li>
+		</random>
+	</template>
+</category>
+<category>
+	<pattern>OPEN QURAN</pattern>
+	<template>opening qur'an</template>
+</category>
+</aiml>

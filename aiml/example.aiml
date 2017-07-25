@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8"?>
+<category>
+	<pattern>I LIKE *</pattern>
+	<template>
+		I too like <star/>
+	</template>
+</category>
+<category>
+	<pattern>A * IS A *</pattern>
+	<template>
+		How <star index="1"/> can not be a <star index="2"/>?
+	</template>
+</category>
+</aiml>

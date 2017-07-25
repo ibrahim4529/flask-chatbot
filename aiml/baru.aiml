@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+<category>
+	<pattern>my hoby is * </pattern>
+	<template>
+		your Hoby Is <star/>.
+	</template>
+</category>
+<category>
+<pattern> MY NAME IS * </pattern>
+<template>
+NICE TO MEET YOU <star/>
+</template>
+</category>
+<category>
+<pattern> MEET OUR GUEST * AND * </pattern>
+<template>
+NICE TO MEET YOU <star index="1"/> AND <star index="2"/>.
+</template>
+</category>
+<category>
+<pattern>dapatkah saya membeli tiket kereta?</pattern>
+<template>yah, ini tiket ke kantor.</template>
+</category>
+<category>
+<pattern>dapatkah saya membeli tiket ke * ?</pattern>
+<template>yah, kamu dapat.
+<think><set name="userDestination"><star/></set>
+<set name="topic">PAYMENT</set></think>
+<srai>bagaimana saya membayar ?</srai>
+</template>
+</category>
+<topic name="PAYMENT">
+<category>
+<pattern>bagaimana saya membayar ?</pattern>
+<template>You can pay cash or use a credit card.
+</template>
+</category>
+</topic>
+</aiml>

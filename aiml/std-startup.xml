@@ -1,0 +1,42 @@
+<aiml version="1.0">
+
+<!-- This category works with the standard AIML Set -->
+<category>
+<pattern>LOAD AIML B</pattern>
+<template>
+	<learn>aiml/calender.aiml</learn>
+	<learn>aiml/a.aiml</learn>
+	<learn>aiml/1.aiml</learn>
+	<learn>aiml/A.aiml</learn>
+	<learn>aiml/B.aiml</learn>
+	<learn>aiml/C.aiml</learn>
+	<learn>aiml/D.aiml</learn>
+	<learn>aiml/W.aiml</learn>
+	<learn>aiml/E.aiml</learn>
+	<learn>aiml/F.aiml</learn>
+	<learn>aiml/G.aiml</learn>
+	<learn>aiml/H.aiml</learn>
+	<learn>aiml/I.aiml</learn>
+	<learn>aiml/J.aiml</learn>
+	<learn>aiml/K.aiml</learn>
+	<learn>aiml/L.aiml</learn>
+	<learn>aiml/M.aiml</learn>
+	<learn>aiml/N.aiml</learn>
+	<learn>aiml/O.aiml</learn>
+	<learn>aiml/P.aiml</learn>
+	<learn>aiml/Q.aiml</learn>
+	<learn>aiml/R.aiml</learn>
+	<learn>aiml/S.aiml</learn>
+	<learn>aiml/T.aiml</learn>
+	<learn>aiml/U.aiml</learn>
+	<learn>aiml/V.aiml</learn>
+	<learn>aiml/W.aiml</learn>
+	<learn>aiml/X.aiml</learn>
+	<learn>aiml/Y.aiml</learn>
+	<learn>aiml/Z.aiml</learn>
+	<learn>aiml/2.aiml</learn>
+	<learn>aiml/3.aiml</learn>
+</template>
+</category>
+
+</aiml>
