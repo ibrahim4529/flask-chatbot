@@ -10,6 +10,9 @@ def hello():
 @app.route('/chat')
 def chat():
 	return render_template('chat2.html')
+@app.route('/we')
+def we():
+	return render_template('chat3.html')
 
 @app.route("/ask", methods=['POST','GET'])
 def ask():
