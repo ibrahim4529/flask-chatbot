@@ -35,4 +35,4 @@ def ask():
 	        return jsonify({'status':'OK','answer':bot_response})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
