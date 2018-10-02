@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, url_for
+from flask import Flask, render_template, request, jsonify
 import aiml
 import os
 
@@ -17,12 +17,6 @@ app = Flask(__name__)
 def hello():
 	load_kern(False)
 	return render_template('chat.html')
-@app.route('/chat')
-def chat():
-	return render_template('chat2.html')
-@app.route('/we')
-def we():
-	return render_template('chat3.html')
 
 @app.route("/ask", methods=['POST','GET'])
 def ask():
