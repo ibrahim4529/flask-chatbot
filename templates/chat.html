@@ -126,6 +126,8 @@ $(function(){
                                     <p class="pull-right"><font color="blue">'+pesan+'</font></p>\
                                 </div>\
                             </li>');
+        $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+        console.log($(this).serialize());
         $.ajax({
             type: "POST",
             url: "/ask",
@@ -133,7 +135,6 @@ $(function(){
             success: function(response) {
                 $('#chatmessage').val('');
                 var answer = response.answer.toUpperCase();
-                console.log(respons);
                 const chatPanel = document.getElementById("chatPanel");
                 $(".media-list").append('<li class="right clearfix"><span class="chat-img pull-right">\
                                 <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />\
