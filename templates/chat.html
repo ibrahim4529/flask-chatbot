@@ -126,6 +126,8 @@ $(function(){
                                     <p class="pull-right"><font color="blue">'+pesan+'</font></p>\
                                 </div>\
                             </li>');
+        $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+        console.log($(this).serialize());
         $.ajax({
             type: "POST",
             url: "/ask",
