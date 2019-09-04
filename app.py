@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import aiml
 import os
+from googletrans import Translator
 
 kernel = aiml.Kernel()
-
+penerjemah = Translator()
 def load_kern(forcereload):
 	if os.path.isfile("bot_brain.brn") and not forcereload:
 		kernel.bootstrap(brainFile= "bot_brain.brn")
@@ -20,7 +21,8 @@ def hello():
 
 @app.route("/ask", methods=['POST','GET'])
 def ask():
-	message = str(request.form['chatmessage'])
+	message = str(penerjemah.translate(request.form['chatmessage'], dest='en').text)
+	print(message)
 	if message == "save":
 	    kernel.saveBrain("bot_brain.brn")
 	    return jsonify({"status":"ok", "answer":"Brain Saved"})
@@ -36,7 +38,8 @@ def ask():
 		# while True:
 		bot_response = kernel.respond(message)
 		# print bot_response
+		bot_response = penerjemah.translate(bot_response, dest='id').text
 		return jsonify({'status':'OK','answer':bot_response})
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

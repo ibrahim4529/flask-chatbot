@@ -1,42 +1,79 @@
 <aiml version="1.0">
 
-<!-- This category works with the standard AIML Set -->
-<category>
-<pattern>LOAD AIML B</pattern>
-<template>
-	<learn>aiml/calender.aiml</learn>
-	<learn>aiml/a.aiml</learn>
-	<learn>aiml/1.aiml</learn>
-	<learn>aiml/A.aiml</learn>
-	<learn>aiml/B.aiml</learn>
-	<learn>aiml/C.aiml</learn>
-	<learn>aiml/D.aiml</learn>
-	<learn>aiml/W.aiml</learn>
-	<learn>aiml/E.aiml</learn>
-	<learn>aiml/F.aiml</learn>
-	<learn>aiml/G.aiml</learn>
-	<learn>aiml/H.aiml</learn>
-	<learn>aiml/I.aiml</learn>
-	<learn>aiml/J.aiml</learn>
-	<learn>aiml/K.aiml</learn>
-	<learn>aiml/L.aiml</learn>
-	<learn>aiml/M.aiml</learn>
-	<learn>aiml/N.aiml</learn>
-	<learn>aiml/O.aiml</learn>
-	<learn>aiml/P.aiml</learn>
-	<learn>aiml/Q.aiml</learn>
-	<learn>aiml/R.aiml</learn>
-	<learn>aiml/S.aiml</learn>
-	<learn>aiml/T.aiml</learn>
-	<learn>aiml/U.aiml</learn>
-	<learn>aiml/V.aiml</learn>
-	<learn>aiml/W.aiml</learn>
-	<learn>aiml/X.aiml</learn>
-	<learn>aiml/Y.aiml</learn>
-	<learn>aiml/Z.aiml</learn>
-	<learn>aiml/2.aiml</learn>
-	<learn>aiml/3.aiml</learn>
-</template>
-</category>
+	<!-- This category works with the standard AIML Set -->
+	<category>
+		<pattern>LOAD AIML B</pattern>
+		<template>
+			<learn>aiml/calender.aiml</learn>
+			<learn>aiml/a.aiml</learn>
+			<learn>aiml/1.aiml</learn>
+			<learn>aiml/A.aiml</learn>
+			<learn>aiml/B.aiml</learn>
+			<learn>aiml/C.aiml</learn>
+			<learn>aiml/D.aiml</learn>
+			<learn>aiml/W.aiml</learn>
+			<learn>aiml/E.aiml</learn>
+			<learn>aiml/F.aiml</learn>
+			<learn>aiml/G.aiml</learn>
+			<learn>aiml/H.aiml</learn>
+			<learn>aiml/I.aiml</learn>
+			<learn>aiml/J.aiml</learn>
+			<learn>aiml/K.aiml</learn>
+			<learn>aiml/L.aiml</learn>
+			<learn>aiml/M.aiml</learn>
+			<learn>aiml/N.aiml</learn>
+			<learn>aiml/O.aiml</learn>
+			<learn>aiml/P.aiml</learn>
+			<learn>aiml/Q.aiml</learn>
+			<learn>aiml/R.aiml</learn>
+			<learn>aiml/S.aiml</learn>
+			<learn>aiml/T.aiml</learn>
+			<learn>aiml/U.aiml</learn>
+			<learn>aiml/V.aiml</learn>
+			<learn>aiml/W.aiml</learn>
+			<learn>aiml/X.aiml</learn>
+			<learn>aiml/Y.aiml</learn>
+			<learn>aiml/Z.aiml</learn>
+			<learn>aiml/2.aiml</learn>
+			<learn>aiml/3.aiml</learn>
+			<learn>aiml/Free-AIML-master/20q.aiml</learn>
+			<learn>aiml/Free-AIML-master/battledome.aiml</learn>
+			<learn>aiml/Free-AIML-master/binary.aiml</learn>
+			<learn>aiml/Free-AIML-master/blackjack.aiml</learn>
+			<learn>aiml/Free-AIML-master/bornin.aiml</learn>
+			<learn>aiml/Free-AIML-master/botcompare.aiml</learn>
+			<learn>aiml/Free-AIML-master/calendar.aiml</learn>
+			<learn>aiml/Free-AIML-master/chatbots32.aiml</learn>
+			<learn>aiml/Free-AIML-master/copyme.aiml</learn>
+			<learn>aiml/Free-AIML-master/currency.aiml</learn>
+			<learn>aiml/Free-AIML-master/daystoxmas.aiml</learn>
+			<learn>aiml/Free-AIML-master/drphil.aiml</learn>
+			<learn>aiml/Free-AIML-master/gender.aiml</learn>
+			<learn>aiml/Free-AIML-master/hangman.aiml</learn>
+			<learn>aiml/Free-AIML-master/happy.aiml</learn>
+			<learn>aiml/Free-AIML-master/highroller.aiml</learn>
+			<learn>aiml/Free-AIML-master/horoscope.aiml</learn>
+			<learn>aiml/Free-AIML-master/howmany.aiml</learn>
+			<learn>aiml/Free-AIML-master/jokes.aiml</learn>
+			<learn>aiml/Free-AIML-master/knockknock.aiml</learn>
+			<learn>aiml/Free-AIML-master/learn.aiml</learn>
+			<learn>aiml/Free-AIML-master/luckyslots.aiml</learn>
+			<learn>aiml/Free-AIML-master/maths.aiml</learn>
+			<learn>aiml/Free-AIML-master/numberdrop.aiml</learn>
+			<learn>aiml/Free-AIML-master/numberones.aiml</learn>
+			<learn>aiml/Free-AIML-master/onthisday.aiml</learn>
+			<learn>aiml/Free-AIML-master/poker.aiml</learn>
+			<learn>aiml/Free-AIML-master/quizfacts.aiml</learn>
+			<learn>aiml/Free-AIML-master/seasons.aiml</learn>
+			<learn>aiml/Free-AIML-master/shutup.aiml</learn>
+			<learn>aiml/Free-AIML-master/tictactoe.aiml</learn>
+			<learn>aiml/Free-AIML-master/warnings.aiml</learn>
+			<learn>aiml/Free-AIML-master/whatday_eng.aiml</learn>
+			<learn>aiml/Free-AIML-master/whatday_usa.aiml</learn>
+			<learn>aiml/Free-AIML-master/wordplay.aiml</learn>
+			<learn>aiml/Free-AIML-master/yomama.aiml</learn>
+			<learn>aiml/Free-AIML-master/zbert.aiml</learn>
+		</template>
+	</category>
 
 </aiml>

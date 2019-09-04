@@ -1,162 +1,324 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Chat Box</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
-  <script type="text/javascript" src="{{url_for('static',filename='jquery.min.js')}}"></script>
-  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
-  <style>
-  body{
-    margin-left: 20%;
-    margin-right: 20%;}
- .chat
-  {
-    list-style: none;
-    margin: auto auto auto auto;
-    padding: 25px auto 25px auto;
-}
+    <title>Chat Box</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='jquery.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <style>
+        .navbar-custom {
+            background-color: #ff5500;
+        }
 
-.chat li
-{
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #B3A9A9;
-}
+        /* change the brand and text color */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: rgba(255, 255, 255, .8);
+        }
 
-.chat li.left .chat-body
-{
-    margin-left: 60px;
-    text-align: right;
-}
+        /* change the link color */
+        .navbar-custom .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, .5);
+        }
 
-.chat li.right .chat-body
-{
-    margin-right: 60px;
-    text-align: right;
-}
+        /* change the color of active or hovered links */
+        .navbar-custom .nav-item.active .nav-link,
+        .navbar-custom .nav-item:hover .nav-link {
+            color: #ffffff;
+        }
 
+        .chatmessage {
+            border: 0;
+            padding: 10px;
+            background: whitesmoke;
+        }
 
-.chat li .chat-body p
-{
-    margin: 0;
-    color: #777777;
-}
+        .text {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+        }
 
-.panel .slidedown .glyphicon, .chat .glyphicon
-{
-    margin-right: 5px;
-}
+        .text>p:first-of-type {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: auto;
+            line-height: 13px;
+            font-size: 12px;
+        }
 
-.panel-body
-{
-    overflow-y: scroll;
-    height: 250px;
-}
-.container{
-    padding-top: 70px;
-    width:100%;
-}
+        .text>p:last-of-type {
+            width: 100%;
+            text-align: right;
+            color: silver;
+            margin-bottom: -7px;
+            margin-top: auto;
+        }
 
-::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
+        .text-l {
+            float: left;
+            padding-right: 10px;
+        }
 
-::-webkit-scrollbar
-{
-    width: 12px;
-    background-color: #F5F5F5;
-}
+        .text-r {
+            float: right;
+            padding-left: 10px;
+        }
 
-::-webkit-scrollbar-thumb
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}
+        .avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+            float: left;
+            padding-right: 10px;
+        }
 
-</style>
+        .macro {
+            margin-top: 5px;
+            width: 85%;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+        }
+
+        .msj-rta {
+            float: right;
+            background: whitesmoke;
+        }
+
+        .msj {
+            float: left;
+            background: white;
+        }
+
+        .frame {
+            background: #e0e0de;
+            height: 450px;
+            overflow: hidden;
+            padding: 0;
+
+        }
+
+        .frame>div:last-of-type {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        body>div>div>div:nth-child(2)>span {
+            background: whitesmoke;
+            padding: 10px;
+            font-size: 21px;
+            border-radius: 50%;
+        }
+
+        body>div>div>div.msj-rta.macro {
+            margin: auto;
+            margin-left: 1%;
+        }
+
+        ul {
+            width: 100%;
+            list-style-type: none;
+            padding: 18px;
+            position: absolute;
+            bottom: 47px;
+            display: flex;
+            flex-direction: column;
+            top: 0;
+            overflow-y: scroll;
+        }
+
+        .msj:before {
+            width: 0;
+            height: 0;
+            content: "";
+            top: -5px;
+            left: -14px;
+            position: relative;
+            border-style: solid;
+            border-width: 0 13px 13px 0;
+            border-color: transparent #ffffff transparent transparent;
+        }
+
+        .msj-rta:after {
+            width: 0;
+            height: 0;
+            content: "";
+            top: -5px;
+            left: 14px;
+            position: relative;
+            border-style: solid;
+            border-width: 13px 13px 0 0;
+            border-color: whitesmoke transparent transparent transparent;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        ::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: #d4d4d4;
+        }
+
+        ::-moz-placeholder {
+            /* Firefox 19+ */
+            color: #d4d4d4;
+        }
+
+        :-ms-input-placeholder {
+            /* IE 10+ */
+            color: #d4d4d4;
+        }
+
+        :-moz-placeholder {
+            /* Firefox 18- */
+            color: #d4d4d4;
+        }
+    </style>
 </head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <a href="/" class="navbar-brand">Home</a>
-    <a href="/chat" class="navbar-brand">Chat</a>
-</nav>
-<hr style="padding-top: 70px">
-<div id="chatPanel" class="panel panel-primary">
-<div class="panel-heading">
-<span class="glyphicon glyphicon-comment"> ChatBot</span>
-</div>
-<div class="panel-body" style="overflow-y: scroll;
-    height: 250px;">
-    <ul class="media-list">
-        
-    </ul>
-</div>
-<div class="panel-footer">
-    <form method="post" class="form-group" id="form-chat">
-        <div class="input-group">
-            <input type="text" id="chatmessage" name="chatmessage" class="form-control">
-            <span class="input-group-btn">
-                <button type="button" class="btn-warning btn-sm col-10" id="btn-chat">Submit</button>
-            </span>
+
+<body style="padding-top: 70px;">
+    <nav>
+        <div class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand">Simple Chat</a>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
-</div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Chat Frame
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-3 col-sm-offset-4 frame">
+                        <ul></ul>
+                        <div>
+                            <div class="msj-rta macro">
+                                <div class="text text-r" style="background:whitesmoke !important">
+                                    <input class="chatmessage" placeholder="Type a message" />
+                                </div>
+
+                            </div>
+                            <div style="padding:10px;">
+                                <span class="glyphicon glyphicon-share-alt"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-$(function(){
-    $( "#btn-chat" ).click(function( event ) {
-      event.preventDefault();
-      $("#form-chat").submit();
-  });
-    $("#form-chat").submit(function(event){
-        event.preventDefault();
-        var pesan =$("#chatmessage").val().toUpperCase();
-        $( ".media-list" ).append('<li class="left clearfix"><span class="chat-img pull-left">\
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />\
-                            </span>\
-                            <div class="chat-body clearfix">\
-                                <div class="header">\
-                                    <strong class="primary-font">USER</strong> <small class="pull-right text-muted">\
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>\
-                                    </div>\
-                                    <p class="pull-right"><font color="blue">'+pesan+'</font></p>\
-                                </div>\
-                            </li>');
-        $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
-        console.log($(this).serialize());
-        $.ajax({
-            type: "POST",
-            url: "/ask",
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#chatmessage').val('');
-                var answer = response.answer.toUpperCase();
-                const chatPanel = document.getElementById("chatPanel");
-                $(".media-list").append('<li class="right clearfix"><span class="chat-img pull-right">\
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />\
-                            </span>\
-                            <div class="chat-body clearfix">\
-                                <div class="header">\
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>\
-                                    <strong class="pull-right primary-font">ROBOT</strong>\
-                                </div>\
-                                <p class="pull-left"><font color ="red">'+answer+'</font></p>\
-                             </div>\
-                        </li>');
-                $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
-            },
-            error: function(error) {
-                console.log(error);
+    resetChat();
+    var me = {};
+    me.avatar = "https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48";
+
+    var you = {};
+    you.avatar = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
+
+    function formatAMPM(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+    }
+    function pesanAwal(){
+        insertChat("you", "Ada Yang Dapat Saya Bantu?");
+    }
+    //-- No use time. It is a javaScript effect.
+    function insertChat(who, text, time) {
+        if (time === undefined) {
+            time = 0;
+        }
+        var control = "";
+        var date = formatAMPM(new Date());
+
+        if (who == "me") {
+            control = '<li style="width:100%">' +
+                '<div class="msj macro">' +
+                '<div class="avatar"><img class="img-circle" style="width:100%;" src="' + me.avatar + '" /></div>' +
+                '<div class="text text-l">' +
+                '<p>' + text + '</p>' +
+                '<p><small>' + date + '</small></p>' +
+                '</div>' +
+                '</div>' +
+                '</li>';
+        } else {
+            control = '<li style="width:100%;">' +
+                '<div class="msj-rta macro">' +
+                '<div class="text text-r">' +
+                '<p>' + text + '</p>' +
+                '<p><small>' + date + '</small></p>' +
+                '</div>' +
+                '<div class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:100%;" src="' + you.avatar + '" /></div>' +
+                '</li>';
+        }
+        setTimeout(
+            function () {
+                $("ul").append(control).scrollTop($("ul").prop('scrollHeight'));
+            }, time);
+
+    }
+
+    function resetChat() {
+        $("ul").empty();
+    }
+
+
+    $(".chatmessage").on("keydown", function (e) {
+
+        if (e.which == 13) {
+            var text = $(this).val();
+            if (text !== "") {
+
+                if (text == "clear") {
+                    resetChat();
+                    pesanAwal();
+                    $(this).val('');
+                }
+                else {
+                    insertChat("me", text);
+                    $(this).val('');
+                    $.ajax(
+                        {
+                            type: "POST",
+                            url: "/ask",
+                            data: "chatmessage=" + text,
+                            success: function (response) {
+                                var pesan = response.answer;
+                                insertChat("you", pesan);
+                            }
+                        }
+                    )
+                }
+
             }
-        });
+        }
 
     });
-    
-});
+
+    $('body > div > div > div:nth-child(2) > span').click(function () {
+        $(".chatmessage").trigger({ type: 'keydown', which: 13, keyCode: 13 });
+    })
+
+    resetChat();
+    pesanAwal();
 
 </script>
+
 </html>
