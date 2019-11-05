@@ -13,6 +13,15 @@ def load_kern(forcereload):
 		kernel.saveBrain("bot_brain.brn")
 
 
+kernel = aiml.Kernel()
+	if os.path.isfile("bot_brain.brn"):
+	    kernel.bootstrap(brainFile = "bot_brain.brn")
+	else:
+	    kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
+	    kernel.saveBrain("bot_brain.brn")
+
+
+
 app = Flask(__name__)
 @app.route("/")
 def hello():
@@ -30,9 +39,9 @@ def ask():
 		load_kern(True)
 		return jsonify({"status":"ok", "answer":"Brain Reloaded"})
 	elif message == "quit":
+    return jsonify({"status":"ok", "answer":"exit Thank You"})
 		exit()
-		return jsonify({"status":"ok", "answer":"exit Thank You"})
-
+		
 	# kernel now ready for use
 	else:
 		# while True:

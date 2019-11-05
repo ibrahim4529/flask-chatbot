@@ -6,8 +6,8 @@ or
 # pip install -r requirements.txt
 
 
-you can start wit command # python app.py
-and you visit http://localhost:5000
+you can start with command # python app.py
+and you visit on your browser http://localhost:5000
 
 
 # online Demo
