@@ -5,5 +5,5 @@ gunicorn==19.7.1
 itsdangerous==0.24
 Jinja2==2.11.3
 MarkupSafe==1.0
-Werkzeug==0.15.3
+Werkzeug==0.15.5
 googletrans==2.4.0
